@@ -29,23 +29,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 00000030  00000000  00000000  00020010  2**0
                   CONTENTS, READONLY
- 13 .debug_info   0000c3f1  00000000  00000000  00020040  2**0
+ 13 .debug_info   0000cac2  00000000  00000000  00020040  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00001976  00000000  00000000  0002c431  2**0
+ 14 .debug_abbrev 00001af7  00000000  00000000  0002cb02  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000968  00000000  00000000  0002dda8  2**3
+ 15 .debug_aranges 00000980  00000000  00000000  0002e600  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_ranges 000008d0  00000000  00000000  0002e710  2**3
+ 16 .debug_ranges 000008d8  00000000  00000000  0002ef80  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00019d2a  00000000  00000000  0002efe0  2**0
+ 17 .debug_macro  00019eff  00000000  00000000  0002f858  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0000ca4f  00000000  00000000  00048d0a  2**0
+ 18 .debug_line   0000d134  00000000  00000000  00049757  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00097e3b  00000000  00000000  00055759  2**0
+ 19 .debug_str    00097e65  00000000  00000000  0005688b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000053  00000000  00000000  000ed594  2**0
+ 20 .comment      00000053  00000000  00000000  000ee6f0  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  0000266c  00000000  00000000  000ed5e8  2**2
+ 21 .debug_frame  0000267c  00000000  00000000  000ee744  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -79,10 +79,10 @@ Disassembly of section .text:
  80001c4:	080031e0 	.word	0x080031e0
 
 080001c8 <OLED_command>:
-char _address = 0x78;
+uint16_t _address = 0x78;
 // char _address = 0x3c; // for Arduino
 
-char I2C_DATA[2]; // max character width 5dot + data
+uint8_t I2C_DATA[2]; // max character width 5dot + data
 
 void OLED_command(char command) {
  80001c8:	b580      	push	{r7, lr}
@@ -98,22 +98,22 @@ void OLED_command(char command) {
  80001d8:	4a08      	ldr	r2, [pc, #32]	; (80001fc <OLED_command+0x34>)
  80001da:	79fb      	ldrb	r3, [r7, #7]
  80001dc:	7053      	strb	r3, [r2, #1]
-	HAL_I2C_Master_Transmit(&hi2c1, _address, (char*) I2C_DATA, 2, 300);
+	HAL_I2C_Master_Transmit(&hi2c1, (uint16_t)_address,  (uint8_t *)I2C_DATA, 2, 300);
  80001de:	4b08      	ldr	r3, [pc, #32]	; (8000200 <OLED_command+0x38>)
- 80001e0:	781b      	ldrb	r3, [r3, #0]
- 80001e2:	b299      	uxth	r1, r3
- 80001e4:	f44f 7396 	mov.w	r3, #300	; 0x12c
- 80001e8:	9300      	str	r3, [sp, #0]
- 80001ea:	2302      	movs	r3, #2
- 80001ec:	4a03      	ldr	r2, [pc, #12]	; (80001fc <OLED_command+0x34>)
- 80001ee:	4805      	ldr	r0, [pc, #20]	; (8000204 <OLED_command+0x3c>)
- 80001f0:	f000 ff22 	bl	8001038 <HAL_I2C_Master_Transmit>
+ 80001e0:	8819      	ldrh	r1, [r3, #0]
+ 80001e2:	f44f 7396 	mov.w	r3, #300	; 0x12c
+ 80001e6:	9300      	str	r3, [sp, #0]
+ 80001e8:	2302      	movs	r3, #2
+ 80001ea:	4a04      	ldr	r2, [pc, #16]	; (80001fc <OLED_command+0x34>)
+ 80001ec:	4805      	ldr	r0, [pc, #20]	; (8000204 <OLED_command+0x3c>)
+ 80001ee:	f000 ff23 	bl	8001038 <HAL_I2C_Master_Transmit>
 }
- 80001f4:	bf00      	nop
- 80001f6:	3708      	adds	r7, #8
- 80001f8:	46bd      	mov	sp, r7
- 80001fa:	bd80      	pop	{r7, pc}
- 80001fc:	200000fc 	.word	0x200000fc
+ 80001f2:	bf00      	nop
+ 80001f4:	3708      	adds	r7, #8
+ 80001f6:	46bd      	mov	sp, r7
+ 80001f8:	bd80      	pop	{r7, pc}
+ 80001fa:	bf00      	nop
+ 80001fc:	20000078 	.word	0x20000078
  8000200:	20000000 	.word	0x20000000
  8000204:	2000002c 	.word	0x2000002c
 
@@ -133,22 +133,22 @@ void OLED_data(char data) {
  8000218:	4a08      	ldr	r2, [pc, #32]	; (800023c <OLED_data+0x34>)
  800021a:	79fb      	ldrb	r3, [r7, #7]
  800021c:	7053      	strb	r3, [r2, #1]
-	HAL_I2C_Master_Transmit(&hi2c1, _address, (char*) I2C_DATA, 2, 300);
+	HAL_I2C_Master_Transmit(&hi2c1, (uint16_t)_address, (uint8_t *) I2C_DATA, 2, 300);
  800021e:	4b08      	ldr	r3, [pc, #32]	; (8000240 <OLED_data+0x38>)
- 8000220:	781b      	ldrb	r3, [r3, #0]
- 8000222:	b299      	uxth	r1, r3
- 8000224:	f44f 7396 	mov.w	r3, #300	; 0x12c
- 8000228:	9300      	str	r3, [sp, #0]
- 800022a:	2302      	movs	r3, #2
- 800022c:	4a03      	ldr	r2, [pc, #12]	; (800023c <OLED_data+0x34>)
- 800022e:	4805      	ldr	r0, [pc, #20]	; (8000244 <OLED_data+0x3c>)
- 8000230:	f000 ff02 	bl	8001038 <HAL_I2C_Master_Transmit>
+ 8000220:	8819      	ldrh	r1, [r3, #0]
+ 8000222:	f44f 7396 	mov.w	r3, #300	; 0x12c
+ 8000226:	9300      	str	r3, [sp, #0]
+ 8000228:	2302      	movs	r3, #2
+ 800022a:	4a04      	ldr	r2, [pc, #16]	; (800023c <OLED_data+0x34>)
+ 800022c:	4805      	ldr	r0, [pc, #20]	; (8000244 <OLED_data+0x3c>)
+ 800022e:	f000 ff03 	bl	8001038 <HAL_I2C_Master_Transmit>
 }
- 8000234:	bf00      	nop
- 8000236:	3708      	adds	r7, #8
- 8000238:	46bd      	mov	sp, r7
- 800023a:	bd80      	pop	{r7, pc}
- 800023c:	200000fc 	.word	0x200000fc
+ 8000232:	bf00      	nop
+ 8000234:	3708      	adds	r7, #8
+ 8000236:	46bd      	mov	sp, r7
+ 8000238:	bd80      	pop	{r7, pc}
+ 800023a:	bf00      	nop
+ 800023c:	20000078 	.word	0x20000078
  8000240:	20000000 	.word	0x20000000
  8000244:	2000002c 	.word	0x2000002c
 
@@ -862,7 +862,7 @@ static void MX_USART2_UART_Init(void) {
  8000652:	bf00      	nop
  8000654:	bd80      	pop	{r7, pc}
  8000656:	bf00      	nop
- 8000658:	20000078 	.word	0x20000078
+ 8000658:	2000007c 	.word	0x2000007c
  800065c:	40004400 	.word	0x40004400
 
 08000660 <MX_GPIO_Init>:
