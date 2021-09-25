@@ -38,7 +38,7 @@ Arduino STM32             OLED MODULE
 
 Please note that my Nucleo soldered SB16 and SB18, so [A5] connects PA6 and PB6, [A4] to PA5 and PB7.
 
-- Choose OLED size in main.c define:
+- Choose OLED size in SSD1306_I2C.c define:
 
 ```cpp:
 #define OLED_HEIGHT 32
@@ -46,3 +46,7 @@ Please note that my Nucleo soldered SB16 and SB18, so [A5] connects PA6 and PB6,
 ```
 
 - Build and run. Tested only for 128x32, with STM32CubeIDE 1.7.0.
+
+# Notice
+- This is not required "Display Buffer." Sample program wrote data to OLED, and forget it.
+- I hope this mechanism is suitable for small MCU. Original my source was run at PIC16F chip.
