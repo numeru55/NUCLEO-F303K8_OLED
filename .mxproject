@@ -9,17 +9,17 @@ CDefines=USE_HAL_DRIVER;STM32F303x8;USE_HAL_DRIVER;USE_HAL_DRIVER;
 [PreviousGenFiles]
 AdvancedFolderStructure=true
 HeaderFileListSize=3
-HeaderFiles#0=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8/Core/Inc/stm32f3xx_it.h
-HeaderFiles#1=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8/Core/Inc/stm32f3xx_hal_conf.h
-HeaderFiles#2=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8/Core/Inc/main.h
+HeaderFiles#0=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8_OLED/Core/Inc/stm32f3xx_it.h
+HeaderFiles#1=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8_OLED/Core/Inc/stm32f3xx_hal_conf.h
+HeaderFiles#2=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8_OLED/Core/Inc/main.h
 HeaderFolderListSize=1
-HeaderPath#0=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8/Core/Inc
+HeaderPath#0=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8_OLED/Core/Inc
 HeaderFiles=;
 SourceFileListSize=3
-SourceFiles#0=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8/Core/Src/stm32f3xx_it.c
-SourceFiles#1=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8/Core/Src/stm32f3xx_hal_msp.c
-SourceFiles#2=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8/Core/Src/main.c
+SourceFiles#0=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8_OLED/Core/Src/stm32f3xx_it.c
+SourceFiles#1=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8_OLED/Core/Src/stm32f3xx_hal_msp.c
+SourceFiles#2=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8_OLED/Core/Src/main.c
 SourceFolderListSize=1
-SourcePath#0=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8/Core/Src
+SourcePath#0=/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8_OLED/Core/Src
 SourceFiles=;
 

@@ -10,7 +10,6 @@ https://neo-sahara.com/wp/2017/11/16/pic24fj64gb002-ssd1306gm009605/
 
 - SSD1306 module, I2C, 128x64 or 128x32.
 - I2C address is 0x78. 0x3c is for Arduino.
-- Now tested only for 128x32.
 
 # Demo Run
 
@@ -38,7 +37,7 @@ Arduino STM32             OLED MODULE
 
 Please note that my Nucleo soldered SB16 and SB18, so [A5] connects PA6 and PB6, [A4] to PA5 and PB7.
 
-- Choose OLED size in SSD1306_I2C.c define:
+- Choose OLED size in SSD1306_I2C.h define:
 
 ```cpp:
 #define OLED_HEIGHT 32

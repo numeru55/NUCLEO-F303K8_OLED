@@ -7,6 +7,9 @@
 #ifndef SSD1306_I2C_H_
 #define SSD1306_I2C_H_
 
+// #define OLED_HEIGHT 32
+#define OLED_HEIGHT 64
+
 void OLED_command(char command);
 void OLED_data(char data);
 void OLED_Init();

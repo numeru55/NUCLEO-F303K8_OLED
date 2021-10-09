@@ -11,9 +11,6 @@
 
 I2C_HandleTypeDef hi2c1;
 
-#define OLED_HEIGHT 32
-// #define OLED_HEIGHT 64
-
 #define OLED_SETCONTRAST 0x81
 #define OLED_DISPLAYALLON_RESUME 0xA4
 #define OLED_DISPLAYALLON 0xA5
